@@ -45,11 +45,40 @@ const customerRouter = {
     }
   },
   {
-    path: 'customer', // 客户列表
+    path: 'customer', 
+    name:"customer",
     component: () => import('@/views/customermanagement/customer/CustomerIndex'),
     meta: {
       requiresAuth: true,
-      title: '客户',
+      title: '客户管理',
+      icon: 'customer',
+      index: 1,
+      type: 'crm',
+      subType: 'customer'
+    }
+  },
+  {
+    path: 'metastasis',
+    name:"metastasis",
+    component: () => import('@/views/customermanagement/customer/MetastasisClient'),
+    hidden:true,
+    meta: {
+      requiresAuth: true,
+      title: '转移客户',
+      icon: 'customer',
+      index: 1,
+      type: 'crm',
+      subType: 'customer'
+    }
+  },
+  {
+    path: 'CustomerInfo',//详情页
+    name:"CustomerInfo",
+    component: () => import('@/views/customermanagement/customer/CustomerInfo'),
+    hidden:true,
+    meta: {
+      requiresAuth: true,
+      title: '客户详情',
       icon: 'customer',
       index: 1,
       type: 'crm',

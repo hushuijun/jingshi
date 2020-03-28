@@ -1,5 +1,7 @@
 import request from '@/utils/request'
+import Lockr from 'lockr'
 
+let token = Lockr.get('Admin-Token');
 // crm 新建客户
 export function crmCustomerSave(data) {
   return request({
@@ -7,7 +9,8 @@ export function crmCustomerSave(data) {
     method: 'post',
     data: data,
     headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Admin-Token':token
     }
   })
 }
@@ -19,7 +22,8 @@ export function crmCustomerIndex(data) {
     method: 'post',
     data: data,
     headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Admin-Token':token
     }
   })
 }
@@ -29,7 +33,10 @@ export function crmCustomerDelete(data) {
   return request({
     url: 'CrmCustomer/deleteByIds',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 
@@ -40,7 +47,8 @@ export function crmCustomerPool(data) {
     method: 'post',
     data: data,
     headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Admin-Token':token
     }
   })
 }
@@ -76,7 +84,10 @@ export function crmCustomerPutInPool(data) {
   return request({
     url: 'CrmCustomer/updateCustomerByIds',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 
@@ -88,7 +99,10 @@ export function crmCustomerTransfer(data) {
   return request({
     url: 'CrmCustomer/transfer',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 
@@ -191,7 +205,10 @@ export function crmCustomerReceive(data) {
   return request({
     url: 'CrmCustomer/receiveByIds',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 
@@ -264,14 +281,20 @@ export function crmCustomerRecordSave(data) {
   return request({
     url: 'CrmCustomer/addRecord',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 export function crmCustomerRecordIndex(data) {
   return request({
     url: 'CrmCustomer/getRecord',
     method: 'post',
-    data: data
+    data: data,
+    headers: {
+      'Admin-Token':token
+    }
   })
 }
 // 团队操作
