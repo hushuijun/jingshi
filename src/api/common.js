@@ -11,7 +11,14 @@ export function usersList(data) {
     data: data
   })
 }
-
+// 搜索人员
+export function seachUser(data) {
+  return request({
+    url: 'system/user/queryListByCondition',
+    method: 'post',
+    data: data
+  })
+}
 /**
  * type
  * @param {*} data

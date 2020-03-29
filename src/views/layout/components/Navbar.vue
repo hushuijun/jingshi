@@ -79,7 +79,7 @@ export default {
   },
   components: {},
   computed: {
-    ...mapGetters(['userInfo', 'lang', 'logo', 'crm', 'bi', 'manage']),
+    ...mapGetters(['userInfo', 'lang', 'logo', 'crm', 'bi', 'manage','finance']),
     items() {
       var tempsItems = []
       tempsItems.push({
@@ -94,6 +94,14 @@ export default {
           type: 1,
           path: '/crm',
           icon: 'customer'
+        })
+      }
+      if (this.finance) {
+        tempsItems.push({
+          title: '财务管理',
+          type: 3,
+          path: '/finance',
+          icon: 'statistics'
         })
       }
       if (this.bi) {

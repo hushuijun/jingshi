@@ -20,11 +20,13 @@ const getters = {
   crm: state => state.user.crm,
   bi: state => state.user.bi,
   manage: state => state.user.manage,
+  finance: state => state.user.finance,
   // 路由
   addRouters: state => state.permission.addRouters,
   crmRouters: state => state.permission.crmRouters,
   biRouters: state => state.permission.biRouters,
   manageRouters: state => state.permission.manageRouters,
+  financeRouters:state => state.permission.financeRouters,
   // 客户管理信息
   messageNum: state => state.customer.messageNum,
   messageOANum: state => state.oa.messageOANum,

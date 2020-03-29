@@ -22,7 +22,8 @@ const user = {
     allAuth: null, //总权限信息 默认空 调整动态路由
     crm: {}, // 客户管理
     bi: {}, // 商业智能
-    manage: {} // 管理后台
+    manage: {}, // 管理后台
+    finance:{}//财务管理
   },
 
   mutations: {
@@ -40,7 +41,10 @@ const user = {
     },
     SET_MANAGE: (state, manage) => {
       state.manage = manage
-    }
+    },
+    SET_FINANCE: (state, finance) => {
+      state.finance = finance
+    },
   },
 
   actions: {
@@ -53,13 +57,13 @@ const user = {
         login(username, userInfo.password).then(data => {
           Lockr.set('Admin-Token', data['Admin-Token'])
           Lockr.set('loginUserInfo', data.user)
-
+          localStorage.setItem("token",data['Admin-Token'])
           Lockr.set('authList', data.auth)
 
           addAuth(data['Admin-Token'])
           commit('SET_USERINFO', data.user)
           // 权限
-
+          // commit('SET_FINANCE', data.auth.finance)
           commit('SET_CRM', data.auth.crm)
           commit('SET_BI', data.auth.bi)
           commit('SET_MANAGE', data.auth.manage)
@@ -82,7 +86,7 @@ const user = {
           commit('SET_CRM', data.crm)
           commit('SET_BI', data.bi)
           commit('SET_MANAGE', data.manage)
-
+          // commit('SET_FINANCE', data.finance)
           resolve(data)
         }).catch(error => {
           reject(error)

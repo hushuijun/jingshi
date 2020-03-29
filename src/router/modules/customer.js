@@ -65,7 +65,6 @@ const customerRouter = {
     meta: {
       requiresAuth: true,
       title: '转移客户',
-      icon: 'customer',
       index: 1,
       type: 'crm',
       subType: 'customer'
@@ -79,7 +78,6 @@ const customerRouter = {
     meta: {
       requiresAuth: true,
       title: '客户详情',
-      icon: 'customer',
       index: 1,
       type: 'crm',
       subType: 'customer'

@@ -74,6 +74,10 @@ const permission = {
     manageRouters: {
       name: 'manager',
       children: []
+    },
+    financeRouters: {
+      name: 'finance',
+      children: []
     }
   },
   mutations: {
