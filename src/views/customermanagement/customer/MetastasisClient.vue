@@ -4,15 +4,6 @@
       <div slot="header" class="clearfix">
         <span>选择员工</span>
       </div>
-      <!-- <el-card class="card" shadow="never">
-        <el-row :gutter="20">
-          <el-col :span="5">
-            人员姓名：<el-select v-model="seach.principal" placeholder="请选择负责人">
-              <el-option v-for="item in userList" :key="item.userId" :label="item.realname" :value="item.userId"></el-option>
-            </el-select>
-          </el-col>
-        </el-row>
-      </el-card> -->
       <el-card class="table-card" shadow="never">
         <div slot="header" class="clearfix">
           <el-row :gutter="20">
@@ -23,7 +14,7 @@
               手机号：<el-input v-model="seach.tel" placeholder="请输入手机号"></el-input>
             </el-col>
             <el-col :span="2">
-              <el-button type="primary" size="small">搜索</el-button>
+              <el-button type="primary" size="small" @click="seachUser">搜索</el-button>
             </el-col>
           </el-row>
         </div>
@@ -46,7 +37,7 @@
 </template>
 
 <script>
-import { usersList } from "@/api/common";
+import { usersList ,seachUser} from "@/api/common";
 import { crmCustomerTransfer,crmCustomerDistribute } from "@/api/customermanagement/customer";
 export default {
   name: "Metastasis",
@@ -54,8 +45,7 @@ export default {
     return {
       seach: {
         name: "",
-        tel: "",
-        principal: ""
+        tel: ""
       },
       customerIds: "",
       personnelList: [],
@@ -78,6 +68,13 @@ export default {
           this.personnelList = res.data;
         }
       );
+    },
+    // 搜索
+    seachUser(){
+      seachUser({realName:this.seach.name,mobile:this.seach.tel})
+      .then(res=>{
+        this.personnelList = res.data;
+      })
     },
     // 确认
     transfer(index, row) {
