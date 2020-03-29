@@ -1,17 +1,14 @@
 import request from '@/utils/request'
 import Lockr from 'lockr'
 
-let token = Lockr.get('Admin-Token');
+
 // crm 新建客户
 export function crmCustomerSave(data) {
   return request({
     url: 'CrmCustomer/addOrUpdate',
     method: 'post',
     data: data,
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      'Admin-Token':token
-    }
+ 
   })
 }
 
@@ -21,10 +18,7 @@ export function crmCustomerIndex(data) {
     url: 'CrmCustomer/queryPageList',
     method: 'post',
     data: data,
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      'Admin-Token':token
-    }
+ 
   })
 }
 
@@ -33,10 +27,7 @@ export function crmCustomerDelete(data) {
   return request({
     url: 'CrmCustomer/deleteByIds',
     method: 'post',
-    data: data,
-    headers: {
-      'Admin-Token':token
-    }
+    data: data
   })
 }
 
@@ -45,11 +36,7 @@ export function crmCustomerPool(data) {
   return request({
     url: 'CrmCustomer/queryPoolPageList',
     method: 'post',
-    data: data,
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      'Admin-Token':token
-    }
+    data: data
   })
 }
 
@@ -85,9 +72,6 @@ export function crmCustomerPutInPool(data) {
     url: 'CrmCustomer/updateCustomerByIds',
     method: 'post',
     data: data,
-    headers: {
-      'Admin-Token':token
-    }
   })
 }
 
@@ -100,9 +84,7 @@ export function crmCustomerTransfer(data) {
     url: 'CrmCustomer/transfer',
     method: 'post',
     data: data,
-    headers: {
-      'Admin-Token':token
-    }
+
   })
 }
 
@@ -206,9 +188,7 @@ export function crmCustomerReceive(data) {
     url: 'CrmCustomer/receiveByIds',
     method: 'post',
     data: data,
-    headers: {
-      'Admin-Token':token
-    }
+
   })
 }
 
@@ -282,19 +262,14 @@ export function crmCustomerRecordSave(data) {
     url: 'CrmCustomer/addRecord',
     method: 'post',
     data: data,
-    headers: {
-      'Admin-Token':token
-    }
+
   })
 }
 export function crmCustomerRecordIndex(data) {
   return request({
     url: 'CrmCustomer/getRecord',
     method: 'post',
-    data: data,
-    headers: {
-      'Admin-Token':token
-    }
+    data: data
   })
 }
 // 团队操作
